@@ -15,7 +15,7 @@ import org.o7planning.simplewebapp.beans.UserAccount;
 import com.WebApp.Beans.*;
 
 public class DBUtils {
-/*
+
     public static UserAccount findUser(Connection conn, //
             String userName, String password) throws SQLException {
  
@@ -28,11 +28,9 @@ public class DBUtils {
         ResultSet rs = pstm.executeQuery();
  
         if (rs.next()) {
-            String gender = rs.getString("Gender");
             UserAccount user = new UserAccount();
             user.setUserName(userName);
             user.setPassword(password);
-            user.setGender(gender);
             return user;
         }
         return null;
@@ -50,16 +48,14 @@ public class DBUtils {
  
         if (rs.next()) {
             String password = rs.getString("Password");
-            String gender = rs.getString("Gender");
             UserAccount user = new UserAccount();
             user.setUserName(userName);
             user.setPassword(password);
-            user.setGender(gender);
             return user;
         }
         return null;
     }
- 
+ /*
     public static List<Product> queryProduct(Connection conn) throws SQLException {
         String sql = "Select a.Code, a.Name, a.Price from Product a ";
  
@@ -79,9 +75,9 @@ public class DBUtils {
         }
         return list;
     }
-*/    
+*/ 
     public static List<Quote> getQuotes(Connection conn) throws SQLException {
-        String sql = "SELECT * FROM fuelQuote";
+        String sql = "SELECT * FROM fuelQuote ORDER BY requestDate DESC";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
@@ -153,7 +149,7 @@ public class DBUtils {
         }
         return list;
     }       
- /*
+/*
     public static Product findProduct(Connection conn, String code) throws SQLException {
         String sql = "Select a.Code, a.Name, a.Price from Product a where a.Code=?";
  
@@ -170,7 +166,7 @@ public class DBUtils {
         }
         return null;
     }
- 
+
     public static void updateProduct(Connection conn, Product product) throws SQLException {
         String sql = "Update Product set Name =?, Price=? where Code=? ";
  
@@ -181,7 +177,7 @@ public class DBUtils {
         pstm.setString(3, product.getCode());
         pstm.executeUpdate();
     }
- */
+*/
     
     public static void insertQuote(Connection conn, Quote quote) throws SQLException {
         String sql = "Insert into fuelQuote"
@@ -206,7 +202,7 @@ public class DBUtils {
  
         pstm.executeUpdate();
     }
- /*
+
     public static void deleteProduct(Connection conn, String code) throws SQLException {
         String sql = "Delete From Product where Code= ?";
  
@@ -216,5 +212,4 @@ public class DBUtils {
  
         pstm.executeUpdate();
     }
-*/ 
 }

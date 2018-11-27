@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
-//import org.o7planning.simplewebapp.beans.UserAccount;
+import com.WebApp.Beans.UserAccount;
  
 public class MyUtils {
  
@@ -29,23 +29,18 @@ public class MyUtils {
         return conn;
     }
  
-    /*
     // Store user info in Session.
     public static void storeLoginedUser(HttpSession session, UserAccount loginedUser) {
         // On the JSP can access via ${loginedUser}
         session.setAttribute("loginedUser", loginedUser);
     }
-    */
- 
-    /*
+
     // Get the user information stored in the session.
     public static UserAccount getLoginedUser(HttpSession session) {
         UserAccount loginedUser = (UserAccount) session.getAttribute("loginedUser");
         return loginedUser;
     }
-    */
-    
-    /*
+
     // Store info in Cookie
     public static void storeUserCookie(HttpServletResponse response, UserAccount user) {
         System.out.println("Store user cookie");
@@ -54,7 +49,6 @@ public class MyUtils {
         cookieUserName.setMaxAge(24 * 60 * 60);
         response.addCookie(cookieUserName);
     }
-    */
  
     public static String getUserNameInCookie(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
